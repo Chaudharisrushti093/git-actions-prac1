@@ -1,0 +1,36 @@
+name: Push Trigger Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "Workflow started successfully!"
+
+      - name: Show Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la
+
+      - name: Show Current Date
+        run: date
+
+      - name: Create Text File
+        run: |
+          echo "This is a demo file" > demo.txt
+          cat demo.txt
+
+      - name: Run Python Program
+        run: |
+          echo 'print("Hello from Python!")' > hello.py
+          python3 hello.py
