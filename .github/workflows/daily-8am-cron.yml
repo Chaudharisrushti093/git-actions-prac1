@@ -1,0 +1,25 @@
+name: Daily Cron Job
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+  daily-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Message
+        run: echo "Daily cron job started!"
+
+      - name: Show Current Date
+        run: date
+
+      - name: Show Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la
+
+      - name: Completion Message
+        run: echo "Daily job completed successfully!"
